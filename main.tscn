@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bd78vw646cdbk"]
+
+[ext_resource type="Script" uid="uid://dwutua1lm7i8n" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c8idc4mhoj4h1" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://0opn6tawwpxv" path="res://coin.tscn" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypm7h"]
+
+[node name="Main" type="Node2D" unique_id=1438132434]
+script = ExtResource("1_0xm2m")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1133808413]
+position = Vector2(40, 600)
+script = ExtResource("1_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1092615056]
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=502492033]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.99999994, 0.49218047, 0.10953269, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1614393991]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ypm7h")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1383227440]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 81.0
+offset_bottom = 43.0
+text = "Score: 0"
+
+[node name="Coin1" parent="." unique_id=159195636 instance=ExtResource("3_h2yge")]
+position = Vector2(500, 500)
+
+[node name="Coin2" parent="." unique_id=105930873 instance=ExtResource("3_h2yge")]
+position = Vector2(600, 400)
+
+[node name="Coin3" parent="." unique_id=1302726021 instance=ExtResource("3_h2yge")]
+position = Vector2(200, 300)
+
+[node name="Manual" type="Label" parent="." unique_id=1444734971]
+offset_left = 860.0
+offset_top = 20.0
+offset_right = 1143.0
+offset_bottom = 43.0
+
+[node name="CoinsLeft" type="Label" parent="." unique_id=279018845]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 60.0
+offset_bottom = 63.0
