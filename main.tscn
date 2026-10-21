@@ -43,6 +43,27 @@ position = Vector2(600, 400)
 [node name="Coin3" parent="." unique_id=1302726021 instance=ExtResource("3_h2yge")]
 position = Vector2(200, 300)
 
+[node name="Coin4" parent="." unique_id=1089483707 instance=ExtResource("3_h2yge")]
+position = Vector2(250, 500)
+
+[node name="Coin5" parent="." unique_id=1622463217 instance=ExtResource("3_h2yge")]
+position = Vector2(600, 100)
+
+[node name="Coin6" parent="." unique_id=1434996048 instance=ExtResource("3_h2yge")]
+position = Vector2(700, 460)
+
+[node name="Coin7" parent="." unique_id=1598206511 instance=ExtResource("3_h2yge")]
+position = Vector2(800, 320)
+
+[node name="Coin8" parent="." unique_id=477682844 instance=ExtResource("3_h2yge")]
+position = Vector2(740, 260)
+
+[node name="Coin9" parent="." unique_id=1451133615 instance=ExtResource("3_h2yge")]
+position = Vector2(900, 410)
+
+[node name="Coin10" parent="." unique_id=2086951302 instance=ExtResource("3_h2yge")]
+position = Vector2(1100, 240)
+
 [node name="Manual" type="Label" parent="." unique_id=1444734971]
 offset_left = 860.0
 offset_top = 20.0
@@ -56,7 +77,6 @@ offset_right = 60.0
 offset_bottom = 63.0
 
 [node name="VictoryUI" type="CanvasLayer" parent="." unique_id=188066203]
-visible = false
 script = ExtResource("4_1bvp3")
 
 [node name="CenterContainer" type="CenterContainer" parent="VictoryUI" unique_id=1744294206]
@@ -86,3 +106,9 @@ text = "Restart"
 [node name="QuitButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1764134693]
 layout_mode = 2
 text = "Quit"
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1136375810]
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1610597240]
+offset_right = 40.0
+offset_bottom = 23.0

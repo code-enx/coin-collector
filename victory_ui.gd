@@ -11,9 +11,9 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	
-func show_victory(coins_collected: int) -> void:
+func show_victory(coins_collected: int, total_coins: int) -> void:
 	victory_title.text = "Victory!"
-	collected_label.text = "Coins Collected: %d/3" % coins_collected
+	collected_label.text = "Coins Collected: %d/%d" % [coins_collected, total_coins]
 	show()
 
 func _on_restart_pressed() -> void:
