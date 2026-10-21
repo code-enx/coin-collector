@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwutua1lm7i8n" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c8idc4mhoj4h1" path="res://player.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://0opn6tawwpxv" path="res://coin.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dqfldk4hgxufy" path="res://victory_ui.gd" id="4_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypm7h"]
 
@@ -53,3 +54,35 @@ offset_left = 20.0
 offset_top = 40.0
 offset_right = 60.0
 offset_bottom = 63.0
+
+[node name="VictoryUI" type="CanvasLayer" parent="." unique_id=188066203]
+visible = false
+script = ExtResource("4_1bvp3")
+
+[node name="CenterContainer" type="CenterContainer" parent="VictoryUI" unique_id=1744294206]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VictoryUI/CenterContainer" unique_id=958512840]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryUI/CenterContainer/PanelContainer" unique_id=1650881270]
+layout_mode = 2
+
+[node name="VictoryTitle" type="Label" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1658093467]
+layout_mode = 2
+
+[node name="CollectedLabel" type="Label" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=758561021]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=582843773]
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1764134693]
+layout_mode = 2
+text = "Quit"

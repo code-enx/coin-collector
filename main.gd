@@ -17,4 +17,4 @@ func _on_coin_collected() -> void:
 	$CoinsLeft.text = "Coins Left : " + str(coins_remaining)
 	
 	if coins_remaining == 0:
-		$Manual.text = "You won! All coins are collected!"
+		$VictoryUI.show_victory(score)
