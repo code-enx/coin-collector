@@ -112,3 +112,4 @@ text = "Quit"
 [node name="TimerLabel" type="Label" parent="." unique_id=1610597240]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Time: 30"

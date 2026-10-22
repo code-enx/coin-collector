@@ -21,3 +21,8 @@ func _on_restart_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func show_game_over(coins_collected: int, total_coins: int) -> void:
+	victory_title.text = "Time's Up!"
+	collected_label.text = "Coins collected: %d/%d" % [coins_collected, total_coins]
+	show()
