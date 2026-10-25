@@ -4,8 +4,74 @@
 [ext_resource type="Script" uid="uid://c8idc4mhoj4h1" path="res://player.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://0opn6tawwpxv" path="res://coin.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dqfldk4hgxufy" path="res://victory_ui.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b1pansprrofjx" path="res://Assets/2D/Collector_front_rabat.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://btkdhtpxtlx34" path="res://Assets/2D/background.png" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypm7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
+atlas = ExtResource("4_7mycd")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80466"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycdy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48qg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Main" type="Node2D" unique_id=1438132434]
 script = ExtResource("1_0xm2m")
@@ -14,18 +80,15 @@ script = ExtResource("1_0xm2m")
 position = Vector2(40, 600)
 script = ExtResource("1_ig7tw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1092615056]
-
-[node name="ColorRect" type="ColorRect" parent="Player" unique_id=502492033]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-color = Color(0.99999994, 0.49218047, 0.10953269, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1614393991]
-scale = Vector2(2, 2)
+position = Vector2(-1.375, -1.96)
+scale = Vector2(2.18, 3.975)
 shape = SubResource("RectangleShape2D_ypm7h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=132337647]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_80466")
+frame_progress = 0.551322
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1383227440]
 offset_left = 20.0
@@ -35,31 +98,31 @@ offset_bottom = 43.0
 text = "Score: 0"
 
 [node name="Coin1" parent="." unique_id=159195636 instance=ExtResource("3_h2yge")]
-position = Vector2(500, 500)
+position = Vector2(505, 369)
 
 [node name="Coin2" parent="." unique_id=105930873 instance=ExtResource("3_h2yge")]
-position = Vector2(600, 400)
+position = Vector2(375, 237)
 
 [node name="Coin3" parent="." unique_id=1302726021 instance=ExtResource("3_h2yge")]
-position = Vector2(200, 300)
+position = Vector2(207, 143)
 
 [node name="Coin4" parent="." unique_id=1089483707 instance=ExtResource("3_h2yge")]
-position = Vector2(250, 500)
+position = Vector2(313, 485)
 
 [node name="Coin5" parent="." unique_id=1622463217 instance=ExtResource("3_h2yge")]
-position = Vector2(600, 100)
+position = Vector2(569, 135)
 
 [node name="Coin6" parent="." unique_id=1434996048 instance=ExtResource("3_h2yge")]
-position = Vector2(700, 460)
+position = Vector2(730, 491)
 
 [node name="Coin7" parent="." unique_id=1598206511 instance=ExtResource("3_h2yge")]
-position = Vector2(800, 320)
+position = Vector2(933, 98)
 
 [node name="Coin8" parent="." unique_id=477682844 instance=ExtResource("3_h2yge")]
-position = Vector2(740, 260)
+position = Vector2(802, 250)
 
 [node name="Coin9" parent="." unique_id=1451133615 instance=ExtResource("3_h2yge")]
-position = Vector2(900, 410)
+position = Vector2(993, 507)
 
 [node name="Coin10" parent="." unique_id=2086951302 instance=ExtResource("3_h2yge")]
 position = Vector2(1100, 240)
@@ -110,6 +173,13 @@ text = "Quit"
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1136375810]
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1610597240]
-offset_right = 40.0
+offset_left = 20.0
+offset_right = 85.0
 offset_bottom = 23.0
 text = "Time: 30"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1500333528]
+z_index = -20
+position = Vector2(560, 316)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("6_7mycd")

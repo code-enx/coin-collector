@@ -11,9 +11,9 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	
-func show_victory(coins_collected: int, total_coins: int) -> void:
+func show_victory(carrots_collected: int, total_carrots: int) -> void:
 	victory_title.text = "Victory!"
-	collected_label.text = "Coins Collected: %d/%d" % [coins_collected, total_coins]
+	collected_label.text = "Carrots Collected: %d/%d" % [carrots_collected, total_carrots]
 	show()
 
 func _on_restart_pressed() -> void:
@@ -22,7 +22,7 @@ func _on_restart_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func show_game_over(coins_collected: int, total_coins: int) -> void:
+func show_game_over(carrots_collected: int, total_carrots: int) -> void:
 	victory_title.text = "Time's Up!"
-	collected_label.text = "Coins collected: %d/%d" % [coins_collected, total_coins]
+	collected_label.text = "Carrots collected: %d/%d" % [carrots_collected, total_carrots]
 	show()
