@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 @onready var victory_title = $CenterContainer/PanelContainer/VBoxContainer/VictoryTitle
-@onready var collected_label = $CenterContainer/PanelContainer/VBoxContainer/CollectedLabel
-@onready var restart_button = $CenterContainer/PanelContainer/VBoxContainer/RestartButton
-@onready var quit_button = $CenterContainer/PanelContainer/VBoxContainer/QuitButton
+@onready var collected_label = $CenterContainer/PanelContainer/VBoxContainer/CoinRow/CollectedLabel
+@onready var restart_button = $CenterContainer/PanelContainer/VBoxContainer/ActionButton/RestartButton
+@onready var quit_button = $CenterContainer/PanelContainer/VBoxContainer/ActionButton/QuitButton
 
 func _ready() -> void:
 	hide()
@@ -12,7 +12,7 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_pressed)
 	
 func show_victory(carrots_collected: int, total_carrots: int) -> void:
-	victory_title.text = "Victory!"
+	victory_title.text = "Victory !"
 	collected_label.text = "Carrots Collected: %d/%d" % [carrots_collected, total_carrots]
 	show()
 

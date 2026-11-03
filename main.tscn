@@ -5,7 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://0opn6tawwpxv" path="res://coin.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dqfldk4hgxufy" path="res://victory_ui.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b1pansprrofjx" path="res://Assets/2D/Collector_front_rabat.png" id="4_7mycd"]
+[ext_resource type="FontFile" uid="uid://hryjekgb6hjb" path="res://Assets/Fonts/cream-DEMO.ttf" id="4_dg77c"]
 [ext_resource type="Texture2D" uid="uid://btkdhtpxtlx34" path="res://Assets/2D/background.png" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dye3e8l37kmhk" path="res://Assets/UI/background.png" id="6_272bh"]
+[ext_resource type="FontFile" uid="uid://dtnn67yie6yh3" path="res://Assets/Fonts/FEC_____.TTF" id="7_4c57u"]
+[ext_resource type="Texture2D" uid="uid://crtp88o16ny70" path="res://Assets/UI/coin.png" id="7_5vw27"]
+[ext_resource type="FontFile" uid="uid://bmtyhpq1ln0pq" path="res://Assets/Fonts/cream-DEMO.otf" id="9_dg77c"]
+[ext_resource type="FontFile" uid="uid://c2qyo6kho4ayv" path="res://Assets/Fonts/Simply Olive DEMO.ttf" id="9_efxa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypm7h"]
 
@@ -73,6 +79,8 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vw27"]
+
 [node name="Main" type="Node2D" unique_id=1438132434]
 script = ExtResource("1_0xm2m")
 
@@ -95,6 +103,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 81.0
 offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("4_dg77c")
 text = "Score: 0"
 
 [node name="Coin1" parent="." unique_id=159195636 instance=ExtResource("3_h2yge")]
@@ -132,12 +141,14 @@ offset_left = 860.0
 offset_top = 20.0
 offset_right = 1143.0
 offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("4_dg77c")
 
 [node name="CoinsLeft" type="Label" parent="." unique_id=279018845]
 offset_left = 20.0
 offset_top = 40.0
 offset_right = 60.0
 offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("9_dg77c")
 
 [node name="VictoryUI" type="CanvasLayer" parent="." unique_id=188066203]
 script = ExtResource("4_1bvp3")
@@ -150,24 +161,67 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="PanelArtwork" type="TextureRect" parent="VictoryUI/CenterContainer" unique_id=146310875]
+custom_maximum_size = Vector2(380, 190)
+layout_mode = 2
+size_flags_stretch_ratio = 0.85
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.835, 2.835)
+texture = ExtResource("6_272bh")
+
 [node name="PanelContainer" type="PanelContainer" parent="VictoryUI/CenterContainer" unique_id=958512840]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5vw27")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VictoryUI/CenterContainer/PanelContainer" unique_id=1650881270]
 layout_mode = 2
 
 [node name="VictoryTitle" type="Label" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1658093467]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_4c57u")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinRow" type="HBoxContainer" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1905423195]
 layout_mode = 2
 
-[node name="CollectedLabel" type="Label" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=758561021]
+[node name="CoinIcon" type="TextureRect" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer/CoinRow" unique_id=667141306]
+custom_minimum_size = Vector2(170, 140)
 layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_5vw27")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="RestartButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=582843773]
+[node name="CollectedLabel" type="Label" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer/CoinRow" unique_id=758561021]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_dg77c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionButton" type="HBoxContainer" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=397959419]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer/ActionButton" unique_id=582843773]
+custom_minimum_size = Vector2(0.49, 0.3)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.4
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("9_efxa6")
+theme_override_font_sizes/font_size = 12
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer" unique_id=1764134693]
+[node name="QuitButton" type="Button" parent="VictoryUI/CenterContainer/PanelContainer/VBoxContainer/ActionButton" unique_id=1764134693]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.22
+theme_override_fonts/font = ExtResource("9_efxa6")
+theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1136375810]
@@ -176,10 +230,11 @@ text = "Quit"
 offset_left = 20.0
 offset_right = 85.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("9_dg77c")
 text = "Time: 30"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1500333528]
 z_index = -20
-position = Vector2(560, 316)
+position = Vector2(562, 297)
 scale = Vector2(0.74, 0.74)
 texture = ExtResource("6_7mycd")

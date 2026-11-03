@@ -4,7 +4,14 @@ extends CharacterBody2D
 @export var sprint_speed: float = 500.0
 @onready var animated_character_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var can_move: bool = true
+
 func _physics_process(_delta):
+	if not can_move:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	
 	var direction = Input.get_vector(
 		"ui_left",
 		"ui_right",

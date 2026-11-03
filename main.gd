@@ -47,6 +47,7 @@ func _on_countdown_timer_timeout() -> void:
 	update_timer_label()
 	
 	if time_left <= 0:
+		$Player.can_move = false
 		game_finished = true
 		$CountdownTimer.stop()
 		$VictoryUI.show_game_over(score, total_coins)
