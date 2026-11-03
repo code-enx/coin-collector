@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 @export var sprint_speed: float = 500.0
 @onready var animated_character_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var flying_sound: AudioStreamPlayer2D = $FlyingSound
+@onready var collect_sound: AudioStreamPlayer = $CollectSound
 
 var can_move: bool = true
 
@@ -19,6 +21,8 @@ func _physics_process(_delta):
 		"ui_down"
 	)
 	if direction != Vector2.ZERO:
+		if not flying_sound.playing:
+			flying_sound.play()
 		animated_character_sprite.play("default")
 	else:
 		animated_character_sprite.stop()
@@ -32,4 +36,7 @@ func _physics_process(_delta):
 	velocity = direction * current_speed
 
 	move_and_slide()
+	
+func play_collect_sound() -> void:
+		collect_sound.play()
 	

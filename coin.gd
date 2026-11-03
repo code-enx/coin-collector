@@ -16,5 +16,8 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		if body.has_method("play_collect_sound"):
+			body.play_collect_sound()
+		
 		collected.emit()
 		queue_free()

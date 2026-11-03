@@ -2,16 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dwutua1lm7i8n" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c8idc4mhoj4h1" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://dlc8dkgnd1t76" path="res://Assets/Audio/Music/Woodland Fantasy.mp3" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://0opn6tawwpxv" path="res://coin.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dqfldk4hgxufy" path="res://victory_ui.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b1pansprrofjx" path="res://Assets/2D/Collector_front_rabat.png" id="4_7mycd"]
 [ext_resource type="FontFile" uid="uid://hryjekgb6hjb" path="res://Assets/Fonts/cream-DEMO.ttf" id="4_dg77c"]
+[ext_resource type="AudioStream" uid="uid://7wt2mhdgj1wo" path="res://Assets/Audio/SFX/Flying.wav" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://btkdhtpxtlx34" path="res://Assets/2D/background.png" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dye3e8l37kmhk" path="res://Assets/UI/background.png" id="6_272bh"]
+[ext_resource type="AudioStream" uid="uid://de86eivx3hgxx" path="res://Assets/Audio/SFX/Coin.wav" id="6_vivmo"]
 [ext_resource type="FontFile" uid="uid://dtnn67yie6yh3" path="res://Assets/Fonts/FEC_____.TTF" id="7_4c57u"]
 [ext_resource type="Texture2D" uid="uid://crtp88o16ny70" path="res://Assets/UI/coin.png" id="7_5vw27"]
 [ext_resource type="FontFile" uid="uid://bmtyhpq1ln0pq" path="res://Assets/Fonts/cream-DEMO.otf" id="9_dg77c"]
 [ext_resource type="FontFile" uid="uid://c2qyo6kho4ayv" path="res://Assets/Fonts/Simply Olive DEMO.ttf" id="9_efxa6"]
+[ext_resource type="AudioStream" uid="uid://mri6pby3m6h4" path="res://Assets/Audio/SFX/Victory.wav" id="11_yaehf"]
+[ext_resource type="AudioStream" uid="uid://cal10vgmpsnxi" path="res://Assets/Audio/SFX/TimesUP.wav" id="12_074og"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypm7h"]
 
@@ -84,6 +89,12 @@ animations = [{
 [node name="Main" type="Node2D" unique_id=1438132434]
 script = ExtResource("1_0xm2m")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1957627556]
+stream = ExtResource("2_ycdy4")
+volume_db = -12.0
+autoplay = true
+parameters/looping = true
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1133808413]
 position = Vector2(40, 600)
 script = ExtResource("1_ig7tw")
@@ -97,6 +108,14 @@ shape = SubResource("RectangleShape2D_ypm7h")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_80466")
 frame_progress = 0.551322
+
+[node name="FlyingSound" type="AudioStreamPlayer2D" parent="Player" unique_id=1223196173]
+stream = ExtResource("5_w48qg")
+volume_db = -10.0
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="Player" unique_id=182776718]
+stream = ExtResource("6_vivmo")
+volume_db = -10.0
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1383227440]
 offset_left = 20.0
@@ -152,6 +171,12 @@ theme_override_fonts/font = ExtResource("9_dg77c")
 
 [node name="VictoryUI" type="CanvasLayer" parent="." unique_id=188066203]
 script = ExtResource("4_1bvp3")
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="VictoryUI" unique_id=1812055797]
+stream = ExtResource("11_yaehf")
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="VictoryUI" unique_id=304947707]
+stream = ExtResource("12_074og")
 
 [node name="CenterContainer" type="CenterContainer" parent="VictoryUI" unique_id=1744294206]
 anchors_preset = 15

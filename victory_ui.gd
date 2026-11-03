@@ -5,6 +5,9 @@ extends CanvasLayer
 @onready var restart_button = $CenterContainer/PanelContainer/VBoxContainer/ActionButton/RestartButton
 @onready var quit_button = $CenterContainer/PanelContainer/VBoxContainer/ActionButton/QuitButton
 
+@onready var victory_sound: AudioStreamPlayer = $VictorySound
+@onready var defeat_sound: AudioStreamPlayer = $DefeatSound
+
 func _ready() -> void:
 	hide()
 	
@@ -14,6 +17,8 @@ func _ready() -> void:
 func show_victory(carrots_collected: int, total_carrots: int) -> void:
 	victory_title.text = "Victory !"
 	collected_label.text = "Carrots Collected: %d/%d" % [carrots_collected, total_carrots]
+	defeat_sound.stop()
+	victory_sound.play()
 	show()
 
 func _on_restart_pressed() -> void:
@@ -25,4 +30,6 @@ func _on_quit_pressed() -> void:
 func show_game_over(carrots_collected: int, total_carrots: int) -> void:
 	victory_title.text = "Time's Up!"
 	collected_label.text = "Carrots collected: %d/%d" % [carrots_collected, total_carrots]
+	victory_sound.stop()
+	defeat_sound.play()
 	show()
